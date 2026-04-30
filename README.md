@@ -1,58 +1,79 @@
-# NeurIPS 2026 论文相关文献调研
+# NeurIPS 2026 论文调研仓库
 
-本仓库收录了两篇 NeurIPS 2026 投稿论文的针对性文献调研，涵盖相关领域的核心工作、方法对比与研究定位分析。
+本仓库包含两篇 NeurIPS 2026 投稿论文的系统性文献调研和画图风格参考。
 
-## 论文概览
+## 📄 我们的论文
 
-### 1. KernelSearch
+| # | 论文 | 主题 | 服务器 |
+|---|------|------|--------|
+| 1 | **KernelSearch** | LLM 生成 CUDA Kernel 的 Failure-Aware 搜索策略基准 | poplab |
+| 2 | **HBD** | 基于睡眠重放机制的固定预算层次蒸馏 | poplab |
 
-**标题**: KernelSearch: A Failure-Aware Benchmark of Search Policies for LLM-Generated CUDA Kernels
+### KernelSearch 简介
+> KernelSearch: A Failure-Aware Benchmark of Search Policies for LLM-Generated CUDA Kernels
 
-**核心贡献**:
-- 提出 failure-aware 分解评估框架，从可靠性、预期速度、边界速度、计算成本、失败模式五个维度全面评估搜索策略
-- 系统对比 MCTS / Iterative / Best-of-N / Greedy 四种搜索策略在 LLM 生成 CUDA Kernel 任务上的表现
-- 基于 30 个 KernelBench 风格任务，使用 Qwen2.5-7B-Instruct 作为策略模型
+评估 MCTS / Iterative / BoN / Greedy 四种搜索策略在 30 个 KernelBench 任务上的表现，提出 failure-aware 的五维分解评估（可靠性、预期速度、边界速度、计算成本、失败模式）。策略模型: Qwen2.5-7B-Instruct。
 
-**调研文档**: [KernelSearch/survey.md](./KernelSearch/survey.md)
+### HBD 简介
+> HBD: Fixed-Budget Hierarchical Distillation for Large Language Models
 
----
-
-### 2. HBD (Hierarchical Budget Distillation)
-
-**标题**: HBD: Fixed-Budget Hierarchical Distillation for Large Language Models
-
-**核心贡献**:
-- 基于神经科学睡眠重放机制（Sleep Replay），在固定 token 预算约束下实现高效知识蒸馏
-- 提出 RPE (Reward Prediction Error) 优先级采样策略，动态调整样本权重
-- 设计 SWR (Sharp-Wave Ripple) token 加权机制，强化关键 token 的学习
-- Teacher: Qwen2.5-7B / Llama-3.1-8B, Student: 0.5B-3B 规模
-
-**调研文档**: [HBD/survey.md](./HBD/survey.md)
+基于神经科学睡眠重放(SleepKD)机制，在固定 token 预算下通过 RPE 优先级采样 + SWR token 加权实现分层蒸馏。Teacher: Qwen2.5-7B / Llama-3.1-8B, Student: 0.5B-3B。
 
 ---
 
-## 目录结构
+## 📁 仓库目录
 
-```
-NIPS_paper_Using/
-├── README.md                          # 本文件 - 总览
-├── KernelSearch/                      # 论文1: CUDA Kernel 搜索策略评估
-│   └── survey.md                      # 详细文献调研
-└── HBD/                               # 论文2: 分层预算蒸馏
-    └── survey.md                      # 详细文献调研
-```
-
-## 调研范围
-
-| 论文 | 调研方向 | 核心关注点 |
-|------|----------|------------|
-| KernelSearch | Benchmark 基础设施、搜索策略、RL 训练 | KernelBench、MCTS 方法、多轮迭代优化 |
-| HBD | 知识蒸馏、选择性蒸馏、剪枝+蒸馏 | MiniLLM、GKD、DistiLLM、DDK、SE-KD |
-
-## 作者
-
-NeurIPS 2026 投稿准备
+| 文件 | 说明 |
+|------|------|
+| [KernelSearch/survey.md](KernelSearch/survey.md) | KernelSearch 方向详细文献调研（5 篇核心论文） |
+| [HBD/survey.md](HBD/survey.md) | HBD 方向详细文献调研（7 篇核心论文） |
+| [figure_style_guide.md](figure_style_guide.md) | **30 篇论文画图风格参考指南** |
 
 ---
 
-*最后更新: 2026年4月*
+## 🔬 调研覆盖范围
+
+### KernelSearch 方向（代码生成 / Benchmark / 搜索策略）
+| 论文 | 会议 | 关键词 |
+|------|------|--------|
+| KernelBench | ICML 2025 | GPU kernel benchmark, fast_p 指标 |
+| Kevin | 2025 | 多轮 RL, CUDA kernel, QwQ-32B |
+| OptiML | 2025 | MCTS + Nsight Profiler |
+| CUDABench | 2025 | Roofline 模型, text-to-CUDA |
+| ReST-MCTS* | NeurIPS 2024 | 过程奖励引导树搜索 |
+| AlphaLLM | NeurIPS 2024 | Imagination-Search-Criticize |
+| ReLoc | NeurIPS 2025 | 局部搜索, revision reward |
+| SolverLLM | 2025 | MCTS 动态扩展 |
+
+### HBD 方向（知识蒸馏 / 模型压缩）
+| 论文 | 会议 | 关键词 |
+|------|------|--------|
+| MiniLLM | ICLR 2024 | Reverse KL 蒸馏 |
+| GKD | ICLR 2024 | 学生生成输出, on-policy |
+| DistiLLM | ICML 2024 | Skew KLD, 自适应 off-policy |
+| SE-KD | 2025 | 选择性蒸馏, entropy 引导 |
+| DDK | NeurIPS 2024 | 域感知动态蒸馏 |
+| Compact LLMs | NeurIPS 2024 | 剪枝+蒸馏, Nemotron |
+| Residual Learning KD | 2025 | 残差学习, 跨 tokenizer |
+
+### 画图风格参考（30 篇）
+覆盖 NeurIPS 2024-2025 Best Papers + 两个方向各 15 篇相关论文的图表设计分析，包括：
+- Teaser 图风格
+- 实验结果图/表设计
+- Ablation 可视化
+- 配色方案与排版建议
+
+---
+
+## 📐 画图建议速览
+
+### KernelSearch
+- **Teaser**: Pipeline 式（左→右），4 策略分支对比
+- **主实验**: 堆叠柱状图（failure mode）+ 5 维雷达图
+- **Scaling**: Log-scale budget 曲线 + error bar
+
+### HBD
+- **Teaser**: Forward-Replay 双阶段 + 神经科学类比图
+- **主实验**: 多任务对比表 + 蜘蛛图
+- **Ablation**: 分组柱状图（Full/w.o. RPE/w.o. SWR/w.o. Sleep）
+- **RPE 分布**: Violin plot 展示训练过程中变化
