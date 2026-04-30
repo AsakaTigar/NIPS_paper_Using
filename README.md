@@ -1,5 +1,37 @@
 # NeurIPS 2026 论文调研仓库
 
+## 🏆 NeurIPS Best Papers（画图风格标杆）
+
+### NeurIPS 2025 Best Papers
+| 论文 | PDF |
+|------|-----|
+| Gated Softmax Attention — 30+变体系统对比 | [PDF](https://arxiv.org/pdf/2501.02405.pdf) |
+| RLVR: Does RL Really Elicit New Reasoning? | [PDF](https://arxiv.org/pdf/2504.13837.pdf) |
+| Scaling RL to 1024 Layers — Deep Self-Supervised RL | [PDF](https://arxiv.org/pdf/2504.11271.pdf) |
+| Why Diffusion Models Don't Memorize | [PDF](https://arxiv.org/pdf/2412.03331.pdf) |
+| Superposition as Cause of Neural Scaling Laws | [PDF](https://arxiv.org/pdf/2501.01765.pdf) |
+| Infinity-Chat: Artificial Hivemind (D&B Best) | [PDF](https://arxiv.org/pdf/2501.03011.pdf) |
+| Transductive Online Learning — Quadratic Gap | [PDF](https://arxiv.org/pdf/2502.07276.pdf) |
+
+### NeurIPS 2024 Best Papers
+| 论文 | PDF |
+|------|-----|
+| VAR: Visual Autoregressive Modeling | [PDF](https://arxiv.org/pdf/2404.02905.pdf) |
+| Learning from Higher-Order Correlations | [PDF](https://arxiv.org/pdf/2405.19141.pdf) |
+| Diffusion Forcing: Next-token Meets Full-Sequence | [PDF](https://arxiv.org/pdf/2407.01392.pdf) |
+| PRISM: Participatory Alignment Dataset (D&B Best) | [PDF](https://arxiv.org/pdf/2404.16019.pdf) |
+| Stochastic Taylor Derivative Estimator — LLM Training | [PDF](https://arxiv.org/pdf/2405.11768.pdf) |
+
+### NeurIPS 2023 Best Papers
+| 论文 | PDF |
+|------|-----|
+| Privacy Auditing with One (1) Training Run | [PDF](https://arxiv.org/pdf/2305.08846.pdf) |
+| Are Emergent Abilities a Mirage? | [PDF](https://arxiv.org/pdf/2304.15004.pdf) |
+| Scaling Data-Constrained Language Models | [PDF](https://arxiv.org/pdf/2305.16264.pdf) |
+| ClimSim: Large Multi-Scale Climate Dataset (D&B Best) | [PDF](https://arxiv.org/pdf/2306.08754.pdf) |
+
+---
+
 ## 📖 论文 PDF 直达（共 32 篇）
 
 ### KernelSearch 方向 — 代码生成 / CUDA Kernel / 搜索策略
