@@ -90,3 +90,47 @@
 - **主实验**: 多任务对比表 + 蜘蛛图
 - **Ablation**: 分组柱状图（Full/w.o. RPE/w.o. SWR/w.o. Sleep）
 - **RPE 分布**: Violin plot 展示训练过程中变化
+
+---
+
+## 📖 论文直达链接
+
+### KernelSearch 方向
+| # | 论文 | 链接 |
+|---|------|------|
+| 1 | KernelBench (ICML 2025) | [arXiv](https://arxiv.org/abs/2502.10517) |
+| 2 | ReST-MCTS* (NeurIPS 2024) | [PDF](https://proceedings.neurips.cc/paper_files/paper/2024/file/76ec4dc30e9faaf0e4b6093eaa377218-Paper-Conference.pdf) |
+| 3 | AlphaLLM (NeurIPS 2024) | [PDF](https://proceedings.neurips.cc/paper_files/paper/2024/file/5e5853f35164e434015716a8c2a66543-Paper-Conference.pdf) |
+| 4 | Kevin (2025) | [PDF](https://openreview.net/pdf/1337e50688c3b8436347700b0ecd4891a7b58eba.pdf) |
+| 5 | OptiML (2025) | [arXiv](https://arxiv.org/abs/2602.12305) |
+| 6 | CUDABench (2025) | [arXiv](https://arxiv.org/abs/2603.02236) |
+| 7 | MCTS Boosts Reasoning (NeurIPS 2024) | [NeurIPS](https://neurips.cc/virtual/2024/104287) |
+| 8 | ReLoc (NeurIPS 2025) | [PDF](https://personal.ntu.edu.sg/boan/papers/NeurIPS25_Localsearch.pdf) |
+| 9 | SolverLLM (2025) | [arXiv](https://arxiv.org/abs/2510.16916) |
+| 10 | VAR (NeurIPS 2024 Best) | [NeurIPS](https://neurips.cc/virtual/2024/poster/93067) |
+| 11 | Gated Softmax (NeurIPS 2025 Best) | [Blog](https://blog.neurips.cc/2025/11/26/announcing-the-neurips-2025-best-paper-awards/) |
+| 12 | RLVR Limits (NeurIPS 2025 Best) | [Blog](https://blog.neurips.cc/2025/11/26/announcing-the-neurips-2025-best-paper-awards/) |
+| 13 | Deep RL 1024 (NeurIPS 2025 Best) | [Blog](https://blog.neurips.cc/2025/11/26/announcing-the-neurips-2025-best-paper-awards/) |
+| 14 | Diffusion Memorization (NeurIPS 2025 Best) | [Blog](https://blog.neurips.cc/2025/11/26/announcing-the-neurips-2025-best-paper-awards/) |
+| 15 | Planning with LMs (NeurIPS 2024) | [NeurIPS](https://proceedings.neurips.cc/paper_files/paper/2024/hash/fa080fe0f218871faec1d8ba20e491d5-Abstract-Conference.html) |
+
+### HBD 方向
+| # | 论文 | 链接 |
+|---|------|------|
+| 1 | MiniLLM (ICLR 2024) | [arXiv](https://arxiv.org/abs/2306.08543) |
+| 2 | GKD (ICLR 2024) | [OpenReview](https://openreview.net/forum?id=aE4Hy2SUb) |
+| 3 | DistiLLM (ICML 2024) | [ICML Slides](https://icml.cc/media/icml-2024/Slides/33197.pdf) |
+| 4 | SE-KD (2025) | [arXiv](https://arxiv.org/abs/2602.01395) |
+| 5 | DDK (NeurIPS 2024) | [NeurIPS](https://neurips.cc/virtual/2024/poster/93067) |
+| 6 | Compact LLMs (NeurIPS 2024) | [NeurIPS](https://neurips.cc/virtual/2024/poster/96308) |
+| 7 | Residual Learning KD (2025) | [PDF](https://openreview.net/pdf/cf5bed8b71779ae42d0e681f1e2a7de3b3c8f6ad.pdf) |
+| 8 | SWITCH KD (NAACL 2025) | [PDF](https://aclanthology.org/2025.findings-naacl.206.pdf) |
+| 9 | KDIC (ICCV 2025) | [PDF](https://openaccess.thecvf.com/content/ICCV2025/papers/Chen_Knowledge_Distillation_for_Learned_Image_Compression_ICCV_2025_paper.pdf) |
+| 10 | AlphaPruning (NeurIPS 2024) | [NeurIPS](https://nips.cc/virtual/2024/papers.html) |
+| 11 | SlimGPT (NeurIPS 2024) | [NeurIPS](https://nips.cc/virtual/2024/papers.html) |
+| 12 | Mamba in the Llama (NeurIPS 2024) | [NeurIPS](https://nips.cc/virtual/2024/papers.html) |
+| 13 | Dataset Decomposition (NeurIPS 2024) | [NeurIPS](https://nips.cc/virtual/2024/papers.html) |
+| 14 | GEAR KV Cache (2024) | [NeurIPS Workshop](https://neurips2024-enlsp.github.io/accepted_papers.html) |
+| 15 | Combining Compressions (Apple) | [Apple ML](https://machinelearning.apple.com/research/combining-compressions) |
+| 16 | PRISM Dataset (NeurIPS 2024 Best) | [Blog](https://blog.neurips.cc/2024/12/10/announcing-the-neurips-2024-best-paper-awards/) |
+| 17 | Superposition Scaling (NeurIPS 2025 Best) | [Blog](https://blog.neurips.cc/2025/11/26/announcing-the-neurips-2025-best-paper-awards/) |

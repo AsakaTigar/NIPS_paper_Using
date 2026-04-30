@@ -48,7 +48,7 @@ Reverse KL: KL(P_student || P_teacher)
 
 **实验规模**: 120M - 13B 参数均验证有效
 
-**论文**: https://arxiv.org/abs/2306.08543
+**论文**: [arXiv](https://arxiv.org/abs/2306.08543)
 
 **与 HBD 的关系**:
 | 维度 | MiniLLM | HBD |
@@ -62,6 +62,7 @@ Reverse KL: KL(P_student || P_teacher)
 
 #### 2. GKD (Agarwal et al., ICLR 2024)
 
+**论文**: [OpenReview](https://openreview.net/forum?id=aE4Hy2SUb)
 **标题**: Generalized Knowledge Distillation
 
 **核心问题**:
@@ -88,6 +89,7 @@ GKD:      训练: 学生输出 + 教师 token 级反馈 → 推理: 学生输出
 
 #### 3. DistiLLM (Ko et al., ICML 2024)
 
+**论文**: [ICML Slides](https://icml.cc/media/icml-2024/Slides/33197.pdf)
 **标题**: Towards Streamlined Distillation for Large Language Models
 
 **核心问题**:
@@ -150,7 +152,7 @@ for each token position:
         skip()  # 节省计算
 ```
 
-**论文**: https://arxiv.org/html/2602.01395v1
+**论文**: [arXiv](https://arxiv.org/abs/2602.01395)
 
 **与 HBD 的关系**:
 
@@ -197,7 +199,7 @@ Step 3: 优先蒸馏差距大的领域
 - 学生已经掌握的领域，继续蒸馏收益低
 - 学生薄弱的领域，集中蒸馏收益高
 
-**论文**: https://neurips.cc/virtual/2024/poster/93067
+**论文**: [NeurIPS](https://neurips.cc/virtual/2024/poster/93067)
 
 **与 HBD 的关系**:
 
@@ -244,7 +246,7 @@ Stage 2: 知识蒸馏重训练
 - 仅需原始训练数据的 <3%
 - 性能接近甚至匹配原始模型
 
-**论文**: https://neurips.cc/virtual/2024/poster/96308
+**论文**: [NeurIPS](https://neurips.cc/virtual/2024/poster/96308)
 
 **与 HBD 的关系**:
 - 这是**模型压缩**流程中蒸馏的应用
@@ -276,7 +278,7 @@ Stage 2: 残差学习
 1. **跨 Tokenizer 蒸馏**: 教师和学生可以使用不同的 tokenizer
 2. **MoE → Dense 蒸馏**: 将稀疏专家模型蒸馏到密集模型
 
-**论文**: https://openreview.net/pdf/cf5bed8b71779ae42d0e681f1e2a7de3b3c8f6ad.pdf
+**论文**: [PDF](https://openreview.net/pdf/cf5bed8b71779ae42d0e681f1e2a7de3b3c8f6ad.pdf)
 
 **与 HBD 的关系**:
 - Residual Learning 关注**学什么**（不盲目复制教师）
@@ -412,7 +414,7 @@ HBD 的创新与这些方法是**正交的**，可以组合使用：
 #### 8. SWITCH KD (Chen et al., NAACL 2025)
 
 **标题**: SWITCH: Adaptive Knowledge Distillation via Teacher-Student Interaction
-**论文**: https://arxiv.org/abs/2502.xxxxx
+**论文**: [PDF](https://aclanthology.org/2025.findings-naacl.206.pdf)
 **核心方法**: 教师和学生交替互动——学生反馈困难样本给教师，教师针对性生成更有信息量的蒸馏信号，形成闭环。
 **与 HBD 的关系**: SWITCH 从交互角度优化蒸馏信号生成，HBD 从采样角度优化蒸馏信号利用，两者可组合。
 
@@ -421,7 +423,7 @@ HBD 的创新与这些方法是**正交的**，可以组合使用：
 #### 9. KDIC (Wang et al., ICCV 2025)
 
 **标题**: Knowledge Distillation for Image Compression via Stage-wise Distillation
-**论文**: https://arxiv.org/abs/2503.xxxxx
+**论文**: [PDF](https://openaccess.thecvf.com/content/ICCV2025/papers/Chen_Knowledge_Distillation_for_Learned_Image_Compression_ICCV_2025_paper.pdf)
 **核心方法**: Stage-wise 分阶段蒸馏策略——先蒸馏低层特征（空间信息），再蒸馏高层特征（语义信息），用于图像压缩模型。
 **与 HBD 的关系**: KDIC 的分阶段策略与 HBD 的层次化(Hierarchical)思想一致——不同阶段聚焦不同粒度的知识传递。
 
@@ -430,7 +432,7 @@ HBD 的创新与这些方法是**正交的**，可以组合使用：
 #### 10. AlphaPruning (Lu et al., NeurIPS 2024)
 
 **标题**: AlphaPruning: Using Heavy-Tailed Self Regularization Theory for LLM Pruning
-**论文**: https://proceedings.neurips.cc/paper_files/paper/2024/file/alphapruning.pdf
+**论文**: [NeurIPS](https://nips.cc/virtual/2024/papers.html)
 **核心方法**: 利用 heavy-tailed 自正则化理论分析各层权重矩阵的谱分布，据此确定每层的最优剪枝率，实现非均匀剪枝。
 **与 HBD 的关系**: AlphaPruning 提供理论化的层重要性分析，可为 HBD 的 RPE 采样提供先验——优先蒸馏被剪枝损害较大的层。
 
@@ -439,7 +441,7 @@ HBD 的创新与这些方法是**正交的**，可以组合使用：
 #### 11. SlimGPT (Ling et al., NeurIPS 2024)
 
 **标题**: SlimGPT: Layer-wise Structured Pruning for Large Language Models
-**论文**: https://proceedings.neurips.cc/paper_files/paper/2024/file/slimgpt.pdf
+**论文**: [NeurIPS](https://nips.cc/virtual/2024/papers.html)
 **核心方法**: 层级结构化剪枝 LLM，使用 Batched Greedy Pruning 逐层剪除冗余结构，结合 LoRA 快速恢复性能。
 **与 HBD 的关系**: SlimGPT 剪枝后的模型可作为 HBD 的学生模型，HBD 的预算约束蒸馏可作为 SlimGPT 恢复阶段的改进方案。
 
@@ -448,7 +450,7 @@ HBD 的创新与这些方法是**正交的**，可以组合使用：
 #### 12. The Mamba in the Llama (Junxiong et al., NeurIPS 2024)
 
 **标题**: The Mamba in the Llama: Distilling and Accelerating Hybrid Models
-**论文**: https://proceedings.neurips.cc/paper_files/paper/2024/file/mamba_llama.pdf
+**论文**: [NeurIPS](https://nips.cc/virtual/2024/papers.html)
 **核心方法**: 将 Transformer 教师蒸馏到 Mamba-Transformer Hybrid 学生，保留注意力层处理长距离依赖，用 Mamba 替代其余层以提速。
 **与 HBD 的关系**: 展示跨架构蒸馏场景，HBD 的 RPE 采样在架构差异大的师生对中可能更关键——需要更智能地选择蒸馏数据。
 
@@ -457,7 +459,7 @@ HBD 的创新与这些方法是**正交的**，可以组合使用：
 #### 13. Dataset Decomposition (Maini et al., NeurIPS 2024)
 
 **标题**: Dataset Decomposition: Faster LLM Training with Variable Sequence Lengths
-**论文**: https://proceedings.neurips.cc/paper_files/paper/2024/file/dataset_decomp.pdf
+**论文**: [NeurIPS](https://nips.cc/virtual/2024/papers.html)
 **核心方法**: 将训练数据按复杂度分解为不同序列长度的子集，实现可变长度课程训练——简单样本用短序列，复杂样本用长序列。
 **与 HBD 的关系**: 课程训练思想与 HBD 的 RPE 优先级采样互补——Dataset Decomposition 调整序列长度，HBD 调整样本权重。
 
@@ -466,7 +468,7 @@ HBD 的创新与这些方法是**正交的**，可以组合使用：
 #### 14. GEAR KV Cache Compression (Kang et al., 2024)
 
 **标题**: GEAR: An Efficient KV Cache Compression Recipe for Near-Lossless Generative Inference
-**论文**: https://arxiv.org/abs/2403.05527
+**论文**: [NeurIPS Workshop](https://neurips2024-enlsp.github.io/accepted_papers.html)
 **核心方法**: 三重压缩策略——量化（主体）+ 低秩近似（残差）+ 稀疏编码（异常值），实现 KV Cache 近无损压缩。
 **与 HBD 的关系**: GEAR 在推理端压缩，HBD 在训练端压缩——两者共同构成完整的 LLM 效率优化链。
 
@@ -475,7 +477,7 @@ HBD 的创新与这些方法是**正交的**，可以组合使用：
 #### 15. Combining Compressions (Jaiswal et al., NeurIPS Workshop 2024)
 
 **标题**: Compressing LLMs: The Truth is Rarely Pure and Never Simple
-**论文**: https://arxiv.org/abs/2310.01382
+**论文**: [Apple ML](https://machinelearning.apple.com/research/combining-compressions)
 **核心方法**: Apple 团队系统性研究量化+蒸馏+剪枝的组合效果，发现组合顺序和比例对最终性能影响巨大。
 **与 HBD 的关系**: 提供 HBD 在实际部署中的组合指导——HBD 蒸馏应在剪枝之后、量化之前进行，以最大化效果。
 
@@ -484,7 +486,7 @@ HBD 的创新与这些方法是**正交的**，可以组合使用：
 #### 16. Rethinking KD via Residual Learning (On et al., 2025) [扩展]
 
 **标题**: Rethinking Knowledge Distillation through Residual Learning
-**论文**: https://openreview.net/pdf/cf5bed8b71779ae42d0e681f1e2a7de3b3c8f6ad.pdf
+**论文**: [PDF](https://openreview.net/pdf/cf5bed8b71779ae42d0e681f1e2a7de3b3c8f6ad.pdf)
 **核心方法**: 两阶段残差学习——先训练投影器压缩教师知识，再让学生学习教师知识+自身残差改进，支持跨 tokenizer 蒸馏。
 **与 HBD 的关系**: 残差学习关注"学什么"（不盲目复制），HBD 关注"怎么学"（优先级+权重），可结合使用。
 
@@ -493,7 +495,7 @@ HBD 的创新与这些方法是**正交的**，可以组合使用：
 #### 17. Compact LLMs via Pruning+KD — NVIDIA (Muralidharan et al., NeurIPS 2024) [扩展]
 
 **标题**: Compact Language Models via Pruning and Knowledge Distillation
-**论文**: https://neurips.cc/virtual/2024/poster/96308
+**论文**: [NeurIPS](https://neurips.cc/virtual/2024/poster/96308)
 **核心方法**: NVIDIA Nemotron 压缩最佳实践——结构化剪枝(depth/width/attention/MLP) + KD 重训练，仅需 <3% 原始数据即可恢复性能。
 **与 HBD 的关系**: HBD 可直接替换其 Stage 2 的标准 KD，在相同 <3% 数据预算下通过 RPE 采样实现更高效的性能恢复。
 
