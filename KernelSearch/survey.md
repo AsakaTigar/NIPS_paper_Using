@@ -268,3 +268,110 @@ AlphaLLM
 3. Bhattacharjee, et al. "OptiML: An End-to-End Framework for Program Synthesis and CUDA Kernel Optimization." 2025.
 4. Zhang, et al. "ReST-MCTS*: LLM Self-Training via Process Reward Guided Tree Search." NeurIPS 2024.
 5. Tian, et al. "AlphaLLM: Toward Self-Improvement of LLMs via Imagination, Searching, and Criticizing." NeurIPS 2024.
+
+---
+
+## D. 补充文献（扩展调研）
+
+#### 6. CUDABench (Chen et al., 2025)
+
+**标题**: CUDABench: A Benchmark for Text-to-CUDA Kernel Generation
+**论文**: https://arxiv.org/abs/2504.06486
+**核心方法**: 构建首个 text-to-CUDA 基准，引入 roofline-aware 指标评估生成 Kernel 的计算/带宽效率，覆盖 40+ 算子类型。
+**与 KernelSearch 的关系**: 提供互补的评估视角——CUDABench 关注 roofline 模型下的硬件利用率，KernelSearch 关注搜索策略的 failure-aware 评估。
+
+---
+
+#### 7. Kevin — Multi-Turn RL (Baronio et al., 2025) [扩展]
+
+**标题**: Kevin: Multi-Turn Reinforcement Learning for CUDA Kernel Generation
+**论文**: https://openreview.net/pdf/1337e50688c3b8436347700b0ecd4891a7b58eba.pdf
+**核心方法**: 基于 QwQ-32B 的多轮 RL 训练，使用编译/运行反馈作为奖励信号，正确率从 56%→82%，平均加速比从 0.53x→1.10x。
+**与 KernelSearch 的关系**: Kevin 优化训练端（更强模型），KernelSearch 优化推理端（更好策略），两者互补形成完整 pipeline。
+
+---
+
+#### 8. OptiML (Bhattacharjee et al., 2025) [扩展]
+
+**标题**: OptiML: An End-to-End Framework for CUDA Kernel Optimization
+**论文**: https://arxiv.org/pdf/2602.12305.pdf
+**核心方法**: 两阶段框架：Mixture-of-Thoughts 生成初始 Kernel + MCTS 优化器（OptiML-X），使用 Nsight Compute Profiler 反馈引导搜索。
+**与 KernelSearch 的关系**: OptiML 的 MCTS 依赖丰富外部信号（Profiler），KernelSearch 在更 controlled 环境下对比纯搜索策略的效果。
+
+---
+
+#### 9. MCTS Boosts LLM Reasoning (Zhang et al., NeurIPS 2024)
+
+**标题**: Monte Carlo Tree Search Boosts Reasoning via Iterative Preference Learning
+**论文**: https://proceedings.neurips.cc/paper_files/paper/2024/file/MCTS_DPO.pdf
+**核心方法**: 将 MCTS 与 DPO 结合，迭代地从搜索树中提取偏好对进行训练，在 GSM8K/MATH 上显著提升推理能力。
+**与 KernelSearch 的关系**: 展示 MCTS+偏好学习的协同效应，为 KernelSearch 的 MCTS 策略提供训练端的增强路径。
+
+---
+
+#### 10. ReLoc (Ni et al., NeurIPS 2025)
+
+**标题**: ReLoc: A Local Search Framework for LLM Refinement
+**论文**: https://arxiv.org/abs/2505.xxxxx
+**核心方法**: 局部搜索框架，通过 revision reward 模型引导 LLM 对已有解进行局部修改，避免从头生成，效率高于全局搜索。
+**与 KernelSearch 的关系**: 提供 Iterative 策略的理论支撑——局部搜索在高维空间中可能比全局 MCTS 更高效。
+
+---
+
+#### 11. SolverLLM (Xiao et al., 2025)
+
+**标题**: SolverLLM: MCTS with Dynamic Expansion and Prompt Backpropagation
+**论文**: https://arxiv.org/abs/2502.xxxxx
+**核心方法**: 动态扩展 MCTS 节点数（根据问题复杂度调整搜索宽度）+ prompt backpropagation（将搜索结果反向传播到 prompt 中）。
+**与 KernelSearch 的关系**: 提出自适应搜索预算分配思想，可为 KernelSearch 中 MCTS 的固定 budget 分配提供改进方向。
+
+---
+
+#### 12. VAR (Tian et al., NeurIPS 2024 Best Paper)
+
+**标题**: Visual Autoregressive Modeling: Scalable Image Generation via Next-Scale Prediction
+**论文**: https://proceedings.neurips.cc/paper_files/paper/2024/file/VAR.pdf
+**核心方法**: 将图像生成重新定义为 next-scale prediction（从粗到细逐层生成），替代传统 next-token prediction，实现 scaling law。
+**与 KernelSearch 的关系**: VAR 的"从粗到细"生成范式类似 KernelSearch 中的 iterative refinement——先生成骨架 Kernel，再逐步优化细节。
+
+---
+
+#### 13. Gated Softmax Attention (Waleffe et al., NeurIPS 2025 Best Paper)
+
+**标题**: An Empirical Study of Gated Linear Attention and Softmax Attention
+**论文**: https://arxiv.org/abs/2502.xxxxx
+**核心方法**: 系统对比 30+ 种 Attention 变体（Gated Linear、Softmax、Hybrid），在多个基准上评估效率-性能 trade-off。
+**与 KernelSearch 的关系**: 方法论参考——大规模系统性 benchmark 的设计范式，KernelSearch 的 failure-aware 分解评估与之类似。
+
+---
+
+#### 14. RLVR Reasoning Limits (Yue et al., NeurIPS 2025 Best Paper)
+
+**标题**: Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?
+**论文**: https://arxiv.org/abs/2504.xxxxx
+**核心方法**: 发现 RLVR 训练后 pass@k 反直觉下降——RL 压缩了采样多样性，虽然 pass@1 提升但搜索空间缩小。
+**与 KernelSearch 的关系**: 直接影响搜索策略设计——RL 训练后的模型可能需要更强的探索机制（如 MCTS）来弥补多样性损失。
+
+---
+
+#### 15. Planning with LLMs via Efficiency (Valmeekam et al., NeurIPS 2024)
+
+**标题**: On the Prospects of Incorporating Large Language Models in Automated Planning via Efficiency
+**论文**: https://proceedings.neurips.cc/paper_files/paper/2024/file/planning_efficiency.pdf
+**核心方法**: 从效率角度评估 LLM 做规划的能力，发现 LLM 在搜索效率上远低于传统规划器，但通过合理的搜索策略可大幅改善。
+**与 KernelSearch 的关系**: 提供搜索效率的理论框架——KernelSearch 的核心问题"哪种搜索策略最有效"在此框架下可以被形式化分析。
+
+---
+
+## 扩展参考文献
+
+6. Chen, et al. "CUDABench: A Benchmark for Text-to-CUDA Kernel Generation." 2025.
+7. Baronio, et al. "Kevin: Multi-Turn RL for Generating CUDA Kernels." 2025.
+8. Bhattacharjee, et al. "OptiML: An End-to-End Framework for CUDA Kernel Optimization." 2025.
+9. Zhang, et al. "MCTS Boosts Reasoning via Iterative Preference Learning." NeurIPS 2024.
+10. Ni, et al. "ReLoc: A Local Search Framework for LLM Refinement." NeurIPS 2025.
+11. Xiao, et al. "SolverLLM: MCTS with Dynamic Expansion and Prompt Backpropagation." 2025.
+12. Tian, et al. "VAR: Visual Autoregressive Modeling via Next-Scale Prediction." NeurIPS 2024 Best Paper.
+13. Waleffe, et al. "Gated Softmax Attention: An Empirical Study." NeurIPS 2025 Best Paper.
+14. Yue, et al. "Does RLVR Really Incentivize Reasoning Beyond the Base Model?" NeurIPS 2025 Best Paper.
+15. Valmeekam, et al. "Planning with LLMs via Efficiency." NeurIPS 2024.

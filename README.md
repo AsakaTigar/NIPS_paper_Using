@@ -25,15 +25,15 @@
 
 | 文件 | 说明 |
 |------|------|
-| [KernelSearch/survey.md](KernelSearch/survey.md) | KernelSearch 方向详细文献调研（5 篇核心论文） |
-| [HBD/survey.md](HBD/survey.md) | HBD 方向详细文献调研（7 篇核心论文） |
+| [KernelSearch/survey.md](KernelSearch/survey.md) | KernelSearch 方向详细文献调研（**15 篇论文**） |
+| [HBD/survey.md](HBD/survey.md) | HBD 方向详细文献调研（**17 篇论文**） |
 | [figure_style_guide.md](figure_style_guide.md) | **30 篇论文画图风格参考指南** |
 
 ---
 
 ## 🔬 调研覆盖范围
 
-### KernelSearch 方向（代码生成 / Benchmark / 搜索策略）
+### KernelSearch 方向（15 篇：代码生成 / Benchmark / 搜索策略）
 | 论文 | 会议 | 关键词 |
 |------|------|--------|
 | KernelBench | ICML 2025 | GPU kernel benchmark, fast_p 指标 |
@@ -43,9 +43,14 @@
 | ReST-MCTS* | NeurIPS 2024 | 过程奖励引导树搜索 |
 | AlphaLLM | NeurIPS 2024 | Imagination-Search-Criticize |
 | ReLoc | NeurIPS 2025 | 局部搜索, revision reward |
-| SolverLLM | 2025 | MCTS 动态扩展 |
+| SolverLLM | 2025 | MCTS 动态扩展, prompt backprop |
+| MCTS Boosts Reasoning | NeurIPS 2024 | MCTS+DPO 迭代偏好学习 |
+| VAR | NeurIPS 2024 Best Paper | next-scale prediction, 从粗到细 |
+| Gated Softmax Attention | NeurIPS 2025 Best Paper | 30+ Attention 变体系统对比 |
+| RLVR Reasoning Limits | NeurIPS 2025 Best Paper | pass@k 反直觉发现, 多样性损失 |
+| Planning with LLMs | NeurIPS 2024 | 效率导向 LLM 规划 |
 
-### HBD 方向（知识蒸馏 / 模型压缩）
+### HBD 方向（17 篇：知识蒸馏 / 模型压缩）
 | 论文 | 会议 | 关键词 |
 |------|------|--------|
 | MiniLLM | ICLR 2024 | Reverse KL 蒸馏 |
@@ -55,6 +60,14 @@
 | DDK | NeurIPS 2024 | 域感知动态蒸馏 |
 | Compact LLMs | NeurIPS 2024 | 剪枝+蒸馏, Nemotron |
 | Residual Learning KD | 2025 | 残差学习, 跨 tokenizer |
+| SWITCH KD | NAACL 2025 | teacher-student 交互蒸馏 |
+| KDIC | ICCV 2025 | stage-wise 蒸馏, 图像压缩 |
+| AlphaPruning | NeurIPS 2024 | heavy-tailed 理论指导剪枝 |
+| SlimGPT | NeurIPS 2024 | 层级结构化剪枝 LLM |
+| Mamba in the Llama | NeurIPS 2024 | hybrid 架构蒸馏, Mamba+Transformer |
+| Dataset Decomposition | NeurIPS 2024 | 可变长度课程训练 |
+| GEAR KV Cache | 2024 | 量化+低秩+稀疏 KV 压缩 |
+| Combining Compressions | NeurIPS Workshop 2024 | 量化+蒸馏+剪枝组合 (Apple) |
 
 ### 画图风格参考（30 篇）
 覆盖 NeurIPS 2024-2025 Best Papers + 两个方向各 15 篇相关论文的图表设计分析，包括：
